@@ -1,0 +1,60 @@
+{
+    "name": "@reaxi/plugin-system",
+    "version": "0.5.1",
+    "main": "dist/index.js",
+    "source": "./src/index.ts",
+    "repository": "https://github.com/reaxi/plugin-system",
+    "author": {
+        "name": "Andrew Colman"
+    },
+    "keywords": [
+        "node",
+        "package",
+        "typescript",
+        "plugin",
+        "system",
+        "plugins"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "prepublishOnly": "npm run build",
+        "build": "rollup --config rollup.config.js",
+        "predev:compiled": "yarn build",
+        "dev:compiled": "node dist/index.js",
+        "test": "jest ",
+        "test:verbose": "jest --verbose",
+        "test:watch": "jest --watch",
+        "minify": "terser dist/index.js --compress ecma=2015,computed_props=false -o dist/index.js --comments false"
+    },
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^21.0.1",
+        "@rollup/plugin-node-resolve": "^13.0.4",
+        "@rollup/plugin-typescript": "^8.2.5",
+        "@swc/core": "^1.2.144",
+        "@swc/jest": "^0.2.17",
+        "@types/fs-extra": "^9.0.13",
+        "@types/jest": "^27.0.1",
+        "@types/node": "^16.11.2",
+        "jest": "^27.0.6",
+        "rollup": "^2.56.2",
+        "rollup-plugin-command": "^1.1.3",
+        "rollup-plugin-delete": "^2.0.0",
+        "rollup-plugin-dts": "^4.2.2",
+        "sucrase": "^3.20.3",
+        "terser": "^5.15.0",
+        "ts-jest": "^27.0.4",
+        "tslib": "^2.3.1",
+        "typescript": "^4.3.5"
+    },
+    "dependencies": {
+        "@reaxi/node-detect-runtime": "^0.1.0",
+        "cache-eight": "^0.11.0-alpha",
+        "fs-extra": "^10.0.1",
+        "jsonc-require": "^1.0.1",
+        "readdir": "^1.0.2",
+        "zod": "^3.19.1"
+    },
+    "peerDependencies": {
+        "commander": ">=8.*.*"
+    }
+}
